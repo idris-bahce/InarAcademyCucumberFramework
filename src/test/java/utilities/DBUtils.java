@@ -39,26 +39,18 @@ public class DBUtils {
         executeQuery(query);
         List<Map<String, Object>> rowList = new ArrayList<>();
         ResultSetMetaData rsmd;
-
         try {
             rsmd = resultSet.getMetaData();
-
             while (resultSet.next()) {
-
                 Map<String, Object> colNameValueMap = new HashMap<>();
-
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
                     colNameValueMap.put(rsmd.getColumnName(i), resultSet.getObject(i));
                 }
-
                 rowList.add(colNameValueMap);
-
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
         return rowList;
 
     }

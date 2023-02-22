@@ -12,12 +12,11 @@ public class Driver {
 
     private static final int IMPLICIT_WAIT_TIME_IN_SECONDS = 20;
     private static final int IMPLICIT_PAGE_LAOD_TIMEOUT = 20;
+    private static WebDriver driver;
 
     private Driver(){
 
     }
-
-    private static WebDriver driver;
 
     public static WebDriver getDriverReference(){
         return driver;

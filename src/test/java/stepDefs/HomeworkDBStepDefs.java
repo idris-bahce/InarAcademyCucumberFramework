@@ -17,7 +17,7 @@ public class HomeworkDBStepDefs {
                 "WHERE CONCAT(c.first_name, ' ', c.last_name) = 'Pamela Baker';";
         List<Map<String, Object>> resultMap = DBUtils.getQueryResultMap(first);
         String expectedResult = resultMap.get(0).get("phone").toString();
-        System.out.println(expectedResult);
+        Assert.assertEquals(expectedResult,myAnswer);
 
     }
 
@@ -25,7 +25,7 @@ public class HomeworkDBStepDefs {
     public void the_title_and_rating_should_match_the_DB_record(String myTitle, String myRating) {
         String second = "SELECT title, rating\n" +
                 "FROM film\n" +
-                "WHERE titl*-e LIKE 'Dragon%' AND length=170;";
+                "WHERE title LIKE 'Dragon%' AND length=170;";
         List<Map<String, Object>> resultMap = DBUtils.getQueryResultMap(second);
         String expectedTitle = resultMap.get(0).get("title").toString();
         String expectedRating = resultMap.get(0).get("rating").toString();
